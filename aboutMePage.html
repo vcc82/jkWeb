@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="公装云,公装，采购云，公装宝，建科网络">
+    <meta name="description" content="公装云-专注公装行业的网络平台，提供工程项目在线管理、海量优质材料和劳务快速对接，解决企业面临的信息不透明、工作效率低下、利润薄等问题。">
+    <title>深圳建科网络科技有限公司官方网站 - 打造全球领先的公装项目管理与交易平台</title>
+    <link rel="stylesheet" href="statics/css/style.css">
+    <script src="statics/js/jquery.min.js"></script>
+    <script src="statics/layer/layer.js"></script>
+
+</head>
+<body>
+<div class="nav">
+    <div class="w1000">
+        <a href="index.html"><img src="statics/img/logo.png"></a>
+        <ul>
+            <a href="index.html">
+                <li>首页</li>
+            </a>
+            <a href="productPage.html">
+                <li>产品</li>
+            </a>
+            <a href="projectPage.html">
+                <li>案例</li>
+            </a>
+            <a href="portfolioPage.html">
+                <li>套餐</li>
+            </a>
+            <a href="aboutMePage.html">
+                <li>关于我们</li>
+            </a>
+        </ul>
+        <a href="javascript:;" style="float: right" id="parentIframe">
+            <button class="btn">申请试用</button>
+        </a>
+    </div>
+</div>
+<div class="aboutMebanner" style="height: 700px;min-width: 1200px" >
+    <div class="col-50" style="background: #3d9be9;padding: 150px 0 0 0;height: 100%;color: #fff;border-right: 7px solid rgba(0,0,0,0.45)">
+        <div style="width: 80%;margin: 0 auto">
+        <h1>关于我们</h1>
+        <p class="textIndent" style="font-size: 16px">建科网络成立于2016年，核心团队由来自中科院、腾讯、阿里、华为、著名装饰企业的互联网、大数据、供应链、项目管理、公共装饰等行业专家组成。建科面向公共装饰行业，以项目主计划管理为核心，凭借“公装云”平台，实现“材料流、资金流、劳务流”的信息化、流程化控制。搭建公装公司、材料商、劳务供应商、业主之间最具价值的一站式直连互通管理平台，实现材料和劳务阳光采购，让项目管理及时精准，让各方收益大幅提升。
+</p>
+        <p class="textIndent" style="font-size: 16px">建科的定位是成为全球领先的公装项目管理和交易平台，我们希望通过我们的努力让公装不再难，让行业人更轻松！</p>
+        </div>
+    </div>
+    <div class="col-50" style="background: #008afc;padding: 180px 0 0 0;height: 100%;color: #fff">
+        <div style="margin: 0 auto;width: 580px;height: 356px"><div style="width: 580px;height: 356px"><img src="statics/img/aboutMe.jpg"></div><img src="statics/img/liftedshadow_medium.png"  style="width: 580px;"></div>
+    </div>
+</div>
+
+
+<!--=====内容部分====-->
+<div class="bannerBox bg_con">
+    <div class="w1000 h400">
+        <div class="col-40">
+            <h3 class="text_w">联系我们</h3>
+            <div style="width: 90%">
+                <form  id="conform" name="conform" method="post" action="mailto:812079817@qq.com"  enctype="text/plain">
+<table>
+    <tbody>
+    <tr><td><input class="emailInput" placeholder="姓名*" id="e_name"></td><td><input class="emailInput" placeholder="邮箱*" id="e_mail"></td></tr>
+    <tr><td colspan="2"><input class="emailInput" placeholder="题目" id="e_title"></td></tr>
+    <tr><td colspan="2"><textarea class="emailInput textInput" placeholder="信息内容" rows="8" id="e_con"></textarea></td></tr>
+    <tr><td colspan="2" ><input class="tableBtn"   type="submit" value="发送邮件"></td></tr>
+    </tbody>
+</table></form>
+            </div>
+        </div>
+        <div class="col-30">
+            <h3 class="text_w">公司地址</h3>
+            <h5 class="text_w" style="padding-right: 15px">
+                广东省深圳市南山区飞亚达科技大厦1105室
+            </h5>
+            <div><h3 class="text_w">公装云公众号</h3>
+                <img src="statics/img/qrc.jpg" height="180" width="180"/></div>
+        </div>
+        <div class="col-30">
+            <h3 class="text_w">公装云热线</h3>
+            <h5 class="text_w">400-101-1718
+            </h5>
+        </div>
+    </div>
+</div>
+
+<div class="bannerBox bg_foot">
+    <div class="w1000 footText">
+        Copyright © 深圳建科网络科技有限公司 2015-2018 All rights reserved<br>
+        备案号：粤ICP备16112703号－2
+    </div>
+</div>
+</div>
+
+<script>
+    //弹出一个iframe层
+    $('#parentIframe').on('click', function(){
+        layer.open({
+            type: 2,
+            title: '申请试用',
+            maxmin: false,
+            shadeClose: true, //点击遮罩关闭层
+            area : ['600px' , '560px'],
+            content: 'applyForTrial.html?v=saas'
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>申请试用</title>
+    <link rel="stylesheet" href="statics/css/style.css">
+    <script src="statics/js/jquery.min.js"></script>
+    <script src="statics/js/jquery.validate.min.js"></script>
+    <script src="statics/js/messages_zh.min.js"></script>
+</head>
+<style>
+    .error{
+        color: red;
+    }
+
+</style>
+<script>
+    jQuery.validator.addMethod("phone", function (value, element) {
+
+        var isvalidMobile = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/.test(value);
+
+        var isOptional = this.optional(element);
+        return isOptional || isvalidMobile;
+    }, "号码错误");
+</script>
+<body style="background: #fff">
+<div class="applyBox">
+    <h3>请填写申请</h3>
+    <p>填写完申请表后，我们的客服会在4小时<br/>以内与您取得联系。谢谢!</p>
+
+    <form  id="loginForm" name="loginForm" >
+        <div class="m_b25"><input placeholder="请输入你的手机号" name="phone" id="phone" required  type="phone" style="width: 400px"><label class="error" for="phone" ></label>
+          </div>
+
+        <div class="m_b25"><input placeholder="请输入你的企业名称" name="companyName" id="companyName" required style="width: 400px">
+            <label class="error" for="companyName"></label></div>
+
+        <div><input placeholder="请输入你的姓名" name="linkman" id="linkman" required style="width: 400px">
+           <label class="error" for="linkman" ></label></div>
+
+        <div class="boxRadio" style="width: 400px">
+            请选择性别：<input name="sex" type="radio" title="先生" value="1" id="m" checked="checked" style="width: 400px" ><label for="m" style="margin-right: 30px">先生</label><input name="sex" type="radio" title="女士" value="2" id="l"><label for="l">女士</label>
+        </div>
+        <div  class="m_b25">
+            <input placeholder="请输入你的职位" name="positionName" style="width: 400px">
+        </div>
+        <input type="button" class="btn" id="Btn1" value="提交申请">
+        <input hidden name="settledCode" id="settledCode">
+
+    </form>
+</div>
+
+<script>
+    function validateData() {
+        return $("#loginForm").valid();
+    }
+
+
+    $('#Btn1').click(function() {
+        if (!validateData()) {
+            return;
+        }
+        $.ajax({
+            url: "https://pservice.gzy360.com/web/settled/saveSettled?from=1",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            data:$('#loginForm').serialize(),
+            success: function (result) {
+                console.log(result)
+                if (result.status == 200) {
+                    // layer.msg("提交成功");
+                    window.location.href = "applyOk.html";
+                } else {
+                    layer.msg("提交失败");
+                }
+            }
+        })
+    });
+
+
+    var str = window.location.search;
+    function getQueryStringArgs(q){
+        var qs = q.split('?')[1] || (location.search.length > 0 ? location.search.substring(1) : ''),
+            args = {},
+            items = qs.length ? qs.split('&') : [],
+            item = null,
+            name = null,
+            value = null,
+            i = 0,
+            len = items.length;
+
+        for(i = 0; i < len; i++){
+            item = items[i].split('=');
+            name = decodeURIComponent(item[0]);
+            value = decodeURIComponent(item[1]);
+            if(name.length){
+                args[name] = value;
+            }
+        }
+        return args;
+    }
+    var r = getQueryStringArgs(str);
+    $('#settledCode').val(r.v);
+</script>
+
+
+
+</body>
+</html>
